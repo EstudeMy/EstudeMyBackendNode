@@ -15,46 +15,29 @@ Backend do projeto **EstudeMy**, desenvolvido em **Node.js + Express + MongoDB**
 - [dotenv](https://www.npmjs.com/package/dotenv)
 - [nodemon](https://www.npmjs.com/package/nodemon) (desenvolvimento)
 
----
-
 ## 📁 Estrutura de Pastas
 
-
-
-estudemy-backend/
-├── src/
-│ ├── config/
-│ │ └── db.js
-│ │
-│ ├── controllers/
-│ │ └── userController.js
-│ │
-│ ├── middlewares/
-│ │ └── authMiddleware.js
-│ │
-│ ├── models/
-│ │ └── userModel.js
-│ │
-│ ├── routes/
-│ │ └── userRoutes.js
-│ │
-│ ├── services/
-│ │ └── userService.js
-│ │
-│ ├── utils/
-│ │ └── tokenHelper.js
-│ │
-│ ├── app.js
-│ └── server.js
-│
-├── .env
-├── .gitignore
-├── package.json
-└── README.md
-
-
-
----
+- **src/**
+  - **config/**
+    - `db.js`
+  - **controllers/**
+    - `userController.js`
+  - **middlewares/**
+    - `authMiddleware.js`
+  - **models/**
+    - `userModel.js`
+  - **routes/**
+    - `userRoutes.js`
+  - **services/**
+    - `userService.js`
+  - **utils/**
+    - `tokenHelper.js`
+  - `app.js`
+  - `server.js`
+- `.env`
+- `.gitignore`
+- `package.json`
+- `README.md`
 
 ## ⚙️ Instalação e Configuração
 
