@@ -48,6 +48,7 @@ cd estudemy-backend
 ````
 2️⃣ Instalar dependências: 
 npm install
+
 npm install express cors dotenv mongoose bcrypt jsonwebtoken
 npm install --save-dev nodemon
 
