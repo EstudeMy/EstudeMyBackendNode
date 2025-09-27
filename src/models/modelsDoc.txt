@@ -1,0 +1,9 @@
+📁 models/
+
+Para que serve:
+Os modelos representam os dados da sua aplicação.
+Eles definem como as informações são salvas e lidas do banco de dados.
+
+💡 Exemplo:
+userModel.js define que um usuário tem nome, email, senha.
+Quando você cria um novo usuário, é esse modelo que organiza como os dados vão para o banco.

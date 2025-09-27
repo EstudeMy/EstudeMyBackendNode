@@ -1,0 +1,13 @@
+📁 controllers/
+
+Para que serve:
+Os controladores são responsáveis por receber a requisição (req), processar (chamando serviços ou modelos) e devolver uma resposta (res).
+Eles são como os "maestros" da aplicação, orquestrando o que vai acontecer quando alguém acessa uma rota.
+
+💡 Exemplo:
+Alguém faz um GET em /api/users.
+O controller vai:
+
+Chamar o service que busca usuários no banco.
+
+Retornar a lista em formato JSON.

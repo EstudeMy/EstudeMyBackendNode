@@ -1,0 +1,13 @@
+📁 utils/
+
+Para que serve:
+Aqui ficam funções utilitárias ou helpers, que podem ser usadas em qualquer lugar do projeto.
+São funções pequenas e genéricas.
+
+💡 Exemplo:
+
+Função que gera um token JWT.
+
+Função que formata datas.
+
+Função que encripta senhas.

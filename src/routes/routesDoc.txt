@@ -1,0 +1,12 @@
+📁 routes/
+
+Para que serve:
+São as rotas da aplicação – elas definem quais URLs existem e quais controllers serão chamados.
+
+💡 Exemplo:
+
+GET /api/users → chama getAllUsers() do controller
+
+POST /api/users → chama createUser() do controller
+
+As rotas são como o cardápio da sua API.

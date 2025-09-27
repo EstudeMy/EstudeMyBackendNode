@@ -1,0 +1,8 @@
+📁 config/
+
+Para que serve:
+Aqui ficam as configurações do projeto.
+Pode ser configuração do banco de dados, de autenticação, ou de qualquer outra ferramenta que você usa no backend.
+
+💡 Exemplo:
+config/db.js pode ter o código que conecta no banco de dados, e o resto do projeto só importa essa conexão.
