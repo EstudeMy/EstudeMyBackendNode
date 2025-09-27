@@ -19,35 +19,36 @@ Backend do projeto **EstudeMy**, desenvolvido em **Node.js + Express + MongoDB**
 
 ## 📁 Estrutura de Pastas
 
-estudemybackendnode/
-│
+
+
+estudemy-backend/
 ├── src/
-│   ├── config/               # Configurações do projeto
-│   │   └── db.js             # Conexão com o MongoDB
-│   │
-│   ├── controllers/          # Controllers (req/res)
-│   │   └── userController.js
-│   │
-│   ├── middlewares/          # Middlewares (autenticação, validação, logs)
-│   │   └── authMiddleware.js
-│   │
-│   ├── models/               # Modelos do banco de dados (Mongoose)
-│   │   └── userModel.js
-│   │
-│   ├── routes/               # Rotas (definem os endpoints e chamam controllers)
-│   │   └── userRoutes.js
-│   │
-│   ├── services/             # Regras de negócio (interagem com models)
-│   │   └── userService.js
-│   │
-│   ├── utils/                # Helpers e funções utilitárias
-│   │   └── tokenHelper.js
-│   │
-│   ├── app.js                # Configuração principal do Express
-│   └── server.js             # Ponto de entrada do servidor
+│ ├── config/
+│ │ └── db.js
+│ │
+│ ├── controllers/
+│ │ └── userController.js
+│ │
+│ ├── middlewares/
+│ │ └── authMiddleware.js
+│ │
+│ ├── models/
+│ │ └── userModel.js
+│ │
+│ ├── routes/
+│ │ └── userRoutes.js
+│ │
+│ ├── services/
+│ │ └── userService.js
+│ │
+│ ├── utils/
+│ │ └── tokenHelper.js
+│ │
+│ ├── app.js
+│ └── server.js
 │
-├── .env                      # Variáveis de ambiente (não versionar)
-├── .gitignore                # Ignorar node_modules, .env etc.
+├── .env
+├── .gitignore
 ├── package.json
 └── README.md
 
