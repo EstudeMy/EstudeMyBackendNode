@@ -22,33 +22,34 @@ Backend do projeto **EstudeMy**, desenvolvido em **Node.js + Express + MongoDB**
 estudemybackendnode/
 │
 ├── src/
-│ ├── config/ # Conexão com banco de dados
-│ │ └── db.js
-│ │
-│ ├── controllers/ # Controllers - recebem req/res
-│ │ └── userController.js
-│ │
-│ ├── middlewares/ # Middlewares - autenticação, validação etc.
-│ │ └── authMiddleware.js
-│ │
-│ ├── models/ # Modelos - representação de dados no MongoDB
-│ │ └── userModel.js
-│ │
-│ ├── routes/ # Rotas - definem os endpoints
-│ │ └── userRoutes.js
-│ │
-│ ├── services/ # Regras de negócio
-│ │ └── userService.js
-│ │
-│ ├── utils/ # Helpers e funções utilitárias
-│ │ └── tokenHelper.js
-│ │
-│ ├── app.js # Configuração principal do Express
-│ └── server.js # Ponto de entrada do servidor
+│   ├── config/               # Configurações do projeto
+│   │   └── db.js             # Conexão com o MongoDB
+│   │
+│   ├── controllers/          # Controllers (req/res)
+│   │   └── userController.js
+│   │
+│   ├── middlewares/          # Middlewares (autenticação, validação, logs)
+│   │   └── authMiddleware.js
+│   │
+│   ├── models/               # Modelos do banco de dados (Mongoose)
+│   │   └── userModel.js
+│   │
+│   ├── routes/               # Rotas (definem os endpoints e chamam controllers)
+│   │   └── userRoutes.js
+│   │
+│   ├── services/             # Regras de negócio (interagem com models)
+│   │   └── userService.js
+│   │
+│   ├── utils/                # Helpers e funções utilitárias
+│   │   └── tokenHelper.js
+│   │
+│   ├── app.js                # Configuração principal do Express
+│   └── server.js             # Ponto de entrada do servidor
 │
-├── .env # Variáveis de ambiente
-├── .gitignore
-└── package.json
+├── .env                      # Variáveis de ambiente (não versionar)
+├── .gitignore                # Ignorar node_modules, .env etc.
+├── package.json
+└── README.md
 
 
 
