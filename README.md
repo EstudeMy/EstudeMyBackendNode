@@ -46,17 +46,17 @@ Backend do projeto **EstudeMy**, desenvolvido em **Node.js + Express + MongoDB**
 git clone https://github.com/seu-usuario/estudemy-backend.git
 cd estudemy-backend
 ````
-2️⃣ Instalar dependências
+2️⃣ Instalar dependências: 
 npm install
 npm install express cors dotenv mongoose bcrypt jsonwebtoken
 npm install --save-dev nodemon
 
-Instalação de Tudo de Uma Vez
+Instalação de Tudo de Uma Vez: 
 npm install express cors dotenv mongoose bcrypt jsonwebtoken && npm install --save-dev nodemon
 
 
 
-4️⃣ Rodar o servidor
+4️⃣ Rodar o servidor: 
 npm run dev
 
 Servidor rodando em: http://localhost:3000
