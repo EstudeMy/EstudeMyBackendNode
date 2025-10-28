@@ -1,14 +1,19 @@
 import express from "express";
-import { listarNovidades, listarPopulares, listarContinue, visualizarTrilha } from "../controllers/trilhaController.js";
 import { verificarToken } from "../middlewares/authMiddleware.js";
+import {
+  criarTrilha,
+  listarTrilhasUsuario,
+  atualizarTrilha,
+  deletarTrilha,
+} from "../controllers/trilhaController.js";
 
 const router = express.Router();
 
-router.get("/novidades", listarNovidades);
-router.get("/populares", listarPopulares);
-router.get("/continue", verificarToken, listarContinue);
-router.get("/visualizar/:id", verificarToken, visualizarTrilha);
+router.use(verificarToken);
+
+router.post("/", criarTrilha);
+router.get("/", listarTrilhasUsuario);
+router.put("/:id", atualizarTrilha);
+router.delete("/:id", deletarTrilha);
 
 export default router;
-
-
