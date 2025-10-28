@@ -1,9 +1,0 @@
-📁 services/
-
-Para que serve:
-Os serviços são onde você coloca a regra de negócio.
-Isso deixa o controller mais limpo.
-
-💡 Exemplo:
-O service pode ter a função buscarTodosUsuarios(), que conversa com o modelo e retorna os dados.
-O controller só chama esse service e devolve a resposta.

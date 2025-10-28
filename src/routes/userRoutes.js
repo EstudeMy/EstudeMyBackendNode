@@ -1,13 +1,15 @@
 // src/routes/userRoutes.js
-import { Router } from "express";
-import { getAllUsers, createUser, loginUser } from "../controllers/userController.js";
-import { autenticar } from "../middlewares/authMiddleware.js";
+import express from "express";
+import { criarPerfil } from "../controllers/userController.js";
+import { verificarToken } from "../middlewares/authMiddleware.js";
+import { loginUser} from "../controllers/userController.js";
+import multer from "multer";
 
-const router = Router();
+const router = express.Router();
+const upload = multer({ dest: "uploads/" });
 
-router.post("/register", createUser);
+router.post("/criarPerfil", verificarToken, upload.single("fotoPerfil"), criarPerfil);
+
 router.post("/login", loginUser);
-
-router.get("/", autenticar, getAllUsers); // agora precisa de token
 
 export default router;

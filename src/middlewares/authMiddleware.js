@@ -1,16 +1,48 @@
-// src/middlewares/authMiddleware.js
-import { verificarToken } from "../utils/tokenHelper.js";
+import jwt from "jsonwebtoken";
+import User from "../models/user.js";
 
-export function autenticar(req, res, next) {
-  const authHeader = req.headers.authorization;
-  if (!authHeader) return res.status(401).json({ message: "Token não fornecido" });
-
-  const token = authHeader.split(" ")[1];
+export const verificarToken = async (req, res, next) => {
   try {
-    const decoded = verificarToken(token);
-    req.user = decoded; // agora o controller pode saber quem está logado
+    const authHeader = req.headers.authorization;
+    if (!authHeader?.startsWith("Bearer ")) {
+      return res.status(401).json({
+        success: false,
+        message: "Acesso negado. Token não fornecido."
+      });
+    }
+
+    console.log("Token recebido:", req.headers.authorization);  
+
+    const token = authHeader.split(" ")[1];
+    const decoded = jwt.verify(token, process.env.JWT_SECRET);
+
+    const userId = decoded.id || decoded._id;
+    const user = await User.findById(userId).select("-senha");
+
+    if (!user) {
+      return res.status(401).json({
+        success: false,
+        message: "Usuário não encontrado."
+      });
+    }
+
+    req.user = user;
     next();
   } catch (error) {
-    return res.status(401).json({ message: "Token inválido ou expirado" });
+    console.error(`[Auth] Erro na verificação do token: ${error.message}`);
+
+    if (error.name === "TokenExpiredError") {
+      return res.status(401).json({
+        success: false,
+        message: "Token expirado. Faça login novamente."
+      });
+    }
+
+    return res.status(401).json({
+      success: false,
+      message: "Token inválido."
+    });
   }
-}
+
+
+};
