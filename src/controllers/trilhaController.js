@@ -1,14 +1,23 @@
 import Trilha from "../models/Trilha.js";
 
-
+// Cria uma nova trilha
 export const criarTrilha = async (req, res) => {
   try {
     const userId = req.user?._id;
     if (!userId) return res.status(401).json({ message: "Usuário não autenticado" });
 
-    const trilha = new Trilha({ ...req.body, usuario: userId });
-    await trilha.save();
+    // dataCriacao é obrigatória no schema
+    const dataCriacao = new Date().toISOString().split("T")[0];
 
+    const trilha = new Trilha({
+      ...req.body,
+      usuario: userId,
+      dataCriacao,
+      usuariosIniciaram: [],
+      visualizacoes: 0,
+    });
+
+    await trilha.save();
     res.status(201).json(trilha);
   } catch (error) {
     console.error("Erro ao criar trilha:", error);
@@ -16,12 +25,13 @@ export const criarTrilha = async (req, res) => {
   }
 };
 
+// Lista todas as trilhas do usuário autenticado
 export const listarTrilhas = async (req, res) => {
   try {
     const userId = req.user?._id;
     if (!userId) return res.status(401).json({ message: "Usuário não autenticado" });
 
-    const trilhas = await Trilha.find({ usuario: userId });
+    const trilhas = await Trilha.find({ usuario: userId }).sort({ createdAt: -1 });
     res.json(trilhas);
   } catch (error) {
     console.error("Erro ao listar trilhas:", error);
@@ -29,6 +39,7 @@ export const listarTrilhas = async (req, res) => {
   }
 };
 
+// Atualiza uma trilha existente
 export const atualizarTrilha = async (req, res) => {
   try {
     const userId = req.user?._id;
@@ -49,6 +60,7 @@ export const atualizarTrilha = async (req, res) => {
   }
 };
 
+// Deleta uma trilha
 export const deletarTrilha = async (req, res) => {
   try {
     const userId = req.user?._id;
@@ -64,7 +76,7 @@ export const deletarTrilha = async (req, res) => {
   }
 };
 
-// Novidades: trilhas que o usuário ainda não iniciou
+// Retorna as trilhas que o usuário ainda não iniciou
 export const trilhasNovidades = async (req, res) => {
   try {
     const userId = req.user._id;
@@ -72,24 +84,26 @@ export const trilhasNovidades = async (req, res) => {
       .sort({ createdAt: -1 })
       .limit(10);
     res.json(trilhas);
-  } catch (err) {
+  } catch (error) {
+    console.error("Erro ao buscar novidades:", error);
     res.status(500).json({ message: "Erro ao buscar novidades" });
   }
 };
 
-// Populares: trilhas com mais visualizações
+// Retorna as trilhas mais populares (por visualizações)
 export const trilhasPopulares = async (req, res) => {
   try {
     const trilhas = await Trilha.find()
       .sort({ visualizacoes: -1 })
       .limit(10);
     res.json(trilhas);
-  } catch (err) {
+  } catch (error) {
+    console.error("Erro ao buscar trilhas populares:", error);
     res.status(500).json({ message: "Erro ao buscar populares" });
   }
 };
 
-// Continue: trilhas que o usuário já iniciou
+// Retorna as trilhas que o usuário já iniciou
 export const trilhasContinue = async (req, res) => {
   try {
     const userId = req.user._id;
@@ -97,7 +111,8 @@ export const trilhasContinue = async (req, res) => {
       .sort({ updatedAt: -1 })
       .limit(10);
     res.json(trilhas);
-  } catch (err) {
+  } catch (error) {
+    console.error("Erro ao buscar trilhas em andamento:", error);
     res.status(500).json({ message: "Erro ao buscar trilhas iniciadas" });
   }
 };
