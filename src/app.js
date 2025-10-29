@@ -7,6 +7,7 @@ import userRoutes from "./routes/userRoutes.js";
 import authRoutes from "./routes/authRoutes.js";
 import homeRoutes from "./routes/homeRoutes.js";
 import perfilRoutes from "./routes/perfilRoutes.js";
+import faseRoutes from "./routes/faseRoutes.js";
 
 import { errorHandler } from "./middlewares/errorHandler.js";
 
@@ -24,6 +25,7 @@ app.use("/api/users", userRoutes);
 app.use("/api/auth", authRoutes);
 app.use("/api/home", homeRoutes);
 app.use("/api", perfilRoutes);
+app.use("/api/fases", faseRoutes);
 
 // Middleware de erros
 app.use(errorHandler);
