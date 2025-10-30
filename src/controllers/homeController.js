@@ -1,4 +1,4 @@
-import Trilha from "../models/Trilha.js";
+import Trilha from "../models/trilha.js";
 
 export const getHomeData = async (req, res) => {
   try {

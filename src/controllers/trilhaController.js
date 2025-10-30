@@ -1,4 +1,4 @@
-import Trilha from "../models/Trilha.js";
+import Trilha from "../models/trilha.js";
 
 // Cria uma nova trilha
 export const criarTrilha = async (req, res) => {
