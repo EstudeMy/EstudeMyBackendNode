@@ -11,7 +11,6 @@ const options = {
     },
     servers: [
       { url: "https://estudemybackendnode.onrender.com", description: "Vercel Estudemy" },
-      { url: "https://localhost:5000", description: "Servidor local" },
     ],
     components: {
       securitySchemes: {
