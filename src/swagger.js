@@ -10,7 +10,7 @@ const options = {
       description: "Documentação das rotas da API Estudemy",
     },
     servers: [
-      { url: "http://localhost:5000", description: "Servidor local" },
+      { url: "https://estudemy.vercel.app:5000", description: "Servidor local" },
     ],
     components: {
       securitySchemes: {

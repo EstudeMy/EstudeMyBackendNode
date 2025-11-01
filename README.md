@@ -191,7 +191,7 @@ Authorization: Bearer <seu_token_jwt>
 | João Quaresma | 💻 Frontend - Backend Developer |
 | Gabriel Lupateli | 👨‍💻 Product Owner|
 | Beatriz Siqueira | 👩‍💻 Scrum Master|
-| Wallacy José | 🧑‍💻 Frontend Devoloper |
+| Wallacy José | 💻 Frontend Devoloper |
 
 ---
 
