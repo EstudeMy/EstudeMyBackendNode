@@ -26,6 +26,7 @@ app.use("/api/auth", authRoutes);
 app.use("/api/home", homeRoutes);
 app.use("/api", perfilRoutes);
 app.use("/api/fases", faseRoutes);
+app.use("/api/usuarios", userRoutes); 
 
 // Middleware de erros
 app.use(errorHandler);

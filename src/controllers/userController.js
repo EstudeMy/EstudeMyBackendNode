@@ -115,3 +115,39 @@ export const loginUser = async (req, res) => {
   }
 };
 
+// Atualizar (personalizar) perfil existente
+export const personalizarPerfil = async (req, res) => {
+  try {
+    if (!req.user || !req.user._id) {
+      return res.status(401).json({ message: "Usuário não autenticado" });
+    }
+
+    const { classe, skin } = req.body;
+
+    const usuario = await User.findById(req.user._id);
+    if (!usuario) {
+      return res.status(404).json({ message: "Usuário não encontrado" });
+    }
+
+    usuario.classe = classe || usuario.classe;
+    usuario.skin = skin || usuario.skin;
+    await usuario.save();
+
+    res.json({ message: "Perfil atualizado com sucesso!", usuario });
+  } catch (error) {
+    console.error("Erro ao atualizar perfil:", error);
+    res.status(500).json({ message: "Erro ao atualizar perfil" });
+  }
+};
+
+export const getUserData = async (req, res) => {
+  try {
+    if (!req.user?._id) return res.status(401).json({ message: "Usuário não autenticado" });
+    const usuario = await User.findById(req.user._id).select("-senha");
+    if (!usuario) return res.status(404).json({ message: "Usuário não encontrado" });
+    res.json(usuario);
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ message: "Erro ao buscar dados do usuário" });
+  }
+};

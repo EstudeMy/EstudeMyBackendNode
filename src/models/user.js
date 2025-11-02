@@ -28,6 +28,10 @@ const UserSchema = new mongoose.Schema(
     },
     fotoPerfil: { type: String, default: "" },
 
+        // Personalização (novos campos)
+    classe: { type: String, enum: ["Guerreiro", "Mago", "Samurai", ""], default: "" },
+    skin: { type: String, default: "" },
+
     materiaFavorita: { type: String, default: "" },
     xpTotal: { type: Number, default: 0 },
     trilhasIniciadas: [{ type: mongoose.Schema.Types.ObjectId, ref: "Trilha" }],
